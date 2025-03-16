@@ -1,5 +1,7 @@
 // ВНИМАНИЕ!!! Не пишите apikey в тасках напрямую. Применяйте константу APIKEY (задать ее значение можно в файле config.js).
 
+
+
 // Task 1
 // При нажатии кнопки .b-1, срабатывает функция f1. Функция отсылает запрос методом FETCH на https://api.itgid.info со следующими параметрами:
 // url: /api/26/employee/read
@@ -118,13 +120,17 @@ document.querySelector('.b-4').onclick = f4;
 
 
 async function f5(){
-    let input = document.querySelector('.s-5').value;
-    const data = await fetch( URL + '/api/26/sr/read?race=' + input,{
+    let input = document.querySelector('.s-5')
+    const data = await fetch( URL + '/api/26/sr/read?race=' + input.value ,{
                    'method' : 'POST',
                    'headers' : {
                     'apikey' : APIKEY,
                    }
     })
+    let res = await data.json();
+    console.log(res);
+    
+    // document.querySelector('.out-5').innerHTML = res;
 }
 
 document.querySelector('.b-5').onclick = f5;

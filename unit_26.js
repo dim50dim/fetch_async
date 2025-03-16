@@ -203,7 +203,15 @@ document.querySelector('.b-7').onclick = f7;
 // выведите в .out-8 данное число.
 
 async function f8(){
-    
+    const data = await fetch(URL + '/api/26/random/random-number',{
+                          'method' : 'GET',
+                          'headers' : {
+                            'apikey': APIKEY,
+                          }
+    });
+    const result = await data.json();
+    console.log(result['random-number']);
+    document.querySelector('.out-8').innerHTML = result['random-number']
 }
 
 document.querySelector('.b-8').onclick = f8;

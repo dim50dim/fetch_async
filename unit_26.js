@@ -12,7 +12,7 @@ async function f1() {
        const requestHeaders = new Headers();
        requestHeaders.append('APIKEY','ccTqZO45ebuz2pPz')
 
-   let emp = await fetch(URL + '/api/26/employee/read', { 
+   let emp = await  fetch(URL + '/api/26/employee/read', { 
                 'method' : 'GET',
                 'headers': requestHeaders,
    })
@@ -21,10 +21,10 @@ async function f1() {
 //      throw new Error(message);
 //    }
    console.log(emp);
-   const result = await emp.json();
-   let res = result.map(item => item)
-                   .map(elem => elem.age)
-   console.log(res);
+//    const result = await emp.json();
+//    let res = result.map(item => item)
+//                    .map(elem => elem.age)
+//    console.log(res);
    
    
    

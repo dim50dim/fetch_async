@@ -16,6 +16,10 @@ async function f1() {
                 'method' : 'GET',
                 'headers': requestHeaders,
    })
+//    if(!emp.ok){
+//      const message = 'Error: ' + response.status;
+//      throw new Error(message);
+//    }
    console.log(emp);
    
 }

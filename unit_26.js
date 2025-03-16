@@ -154,9 +154,9 @@ async function f6(){
         const res = await data.json();
         console.log(res);
            if(!res.ok){
-     const message = 'Error: ' + response.status;
+    //  const message = 'Error: ' + response.status;
     //  throw new Error(message);
-      document.querySelector('.out-6-status').innerHTML = message;
+      document.querySelector('.out-6-status').innerHTML = 'ERROR'
    }else{
     document.querySelector('.out-6').innerHTML = res;
    }
@@ -176,7 +176,21 @@ document.querySelector('.b-6').onclick = f6;
 
 
 async function f7(){
-    
+    let race = document.querySelector('.s-7').value;
+    const data = await fetch(URL + '/api/26/sr/read/' + race,{
+                       'method' : 'POST',
+                       'headers':{
+                        'apikey': APIKEY,
+                       }
+    });
+    const res = await data.json();
+    console.log(res);
+    let img = document.createElement('img');
+    img.src = res.result.image;
+    img.alt = `Image of ${race}`;
+    img.style.maxWidth = '100%'
+
+    document.querySelector('.out-7').appendChild(img);
 }
 
 document.querySelector('.b-7').onclick = f7;

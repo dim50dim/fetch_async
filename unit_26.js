@@ -118,7 +118,13 @@ document.querySelector('.b-4').onclick = f4;
 
 
 async function f5(){
-   
+    let input = document.querySelector('.s-5').value;
+    const data = await fetch( URL + '/api/26/sr/read?race=' + input,{
+                   'method' : 'POST',
+                   'headers' : {
+                    'apikey' : APIKEY,
+                   }
+    })
 }
 
 document.querySelector('.b-5').onclick = f5;

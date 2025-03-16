@@ -21,6 +21,10 @@ async function f1() {
 //      throw new Error(message);
 //    }
    console.log(emp);
+   const result = await emp.json();
+   console.log(result);
+   
+   
    
 }
 

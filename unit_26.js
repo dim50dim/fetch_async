@@ -53,7 +53,11 @@ async function f2(){
                             'apikey' : APIKEY,
                           }
    });
+   const result = await data.json();
+   console.log(result.result.email);
    
+   document.querySelector('.out-2').innerHTML = result.result.email;
+ 
 }
 
 document.querySelector('.b-2').onclick = f2;

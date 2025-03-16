@@ -72,9 +72,15 @@ document.querySelector('.b-2').onclick = f2;
 // Результат - объект с описанием сотрудника. Выведите в out-3 name полученного сотрудника.
 
 async function f3(){
-     const data = await fetch( URL + '/api/26/employee/read/5',{
+    let name = document.querySelector('.i-3').value;
+     const data = await fetch( URL + '/api/26/employee/read/' + name,{
           'method' : "POST",
+          'headers' : {
+            'apikey' : APIKEY,
+          }
      })
+     const res = await data.json();
+     document.querySelector('.out-3').innerHTML = res.result.name;
 }
 
 document.querySelector('.b-3').onclick = f3;

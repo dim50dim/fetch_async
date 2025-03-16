@@ -361,7 +361,17 @@ document.querySelector('.b-13').onclick = f13;
 // выведите в .out-14 title миров через пробел. 
 
 async function f14(){
-   
+    const data = await fetch(URL + '/api/26/gow/world',{
+        'method': 'GET',
+        'headers': {
+            'apikey' : APIKEY,
+        }
+    });
+    const res = await data.json();
+    console.log(res);
+    
+    let world= res.worlds.map(item => item.title);
+    document.querySelector('.out-14').innerHTML = world.join(' ');
 }
 
 document.querySelector('.b-14').onclick = f14;
@@ -375,7 +385,16 @@ document.querySelector('.b-14').onclick = f14;
 // выведите описание мира (description) в out-15
 
 async function f15(){
-   
+    let world = document.querySelector('.s-15').value;
+    const data = await fetch(URL + '/api/26/gow/world/' + world, {
+        'method' : 'GET',
+        'headers' : {
+            'apikey' : APIKEY,
+        }
+    });
+    const res = await data.json();
+    console.log(res);
+    document.querySelector('.out-15').innerHTML = res.world.description;
 }
 
 
@@ -390,7 +409,17 @@ document.querySelector('.b-15').onclick = f15;
 // выведите в .out-16 руну данного мира. Как изображение (createElement). Очищайте out-16 в начале функции.
 
 async function f16(){
-    
+   let nameOfKing = document.querySelector('.s-16').value;
+   const data = await fetch(URL + '/api/26/gow/governor/'  + nameOfKing, {
+    'method' : 'GET',
+    'headers' : {
+        'apikey' : APIKEY,
+    }
+   });
+   const res = await data.json();
+   console.log(res);
+   
+   document.querySelector('.out-16').innerHTML = res.world.alias;
 }
 
 
@@ -405,7 +434,16 @@ document.querySelector('.b-16').onclick = f16;
 // выведите в .out-17 время в формате час:минуты
 
 async function f17(){
-   
+      const data = await fetch(URL + '/api/26/get-time',{
+        'method' : 'POST',
+        'headers' : {
+            'apikey' : APIKEY,
+        }
+      });
+      const result = await data.json();
+      console.log(result);
+      
+      document.querySelector('.out-17').innerHTML = result.time.h + ':' + result.time.m;
 }
 
 
@@ -421,7 +459,15 @@ document.querySelector('.b-17').onclick = f17;
 // выполните очистку .out-18 в начале функции
 
 async function f18(){
-
+      const data = await fetch(URL + '/api/26/gow/rune',{
+        'method' : 'POST',
+        'headers' : {
+            'apikey' : APIKEY,
+        }
+      });
+      const result = await data.json();
+      console.log(result);
+      
 }
 
 

@@ -9,6 +9,10 @@
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 async function f1() {
+   let emp = await fetch(URL + '/api/26/employee/read', { 
+                'method' : 'GET'
+   })
+   console.log(emp);
    
 }
 

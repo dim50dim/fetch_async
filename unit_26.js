@@ -308,6 +308,10 @@ async function f11(){
                     'apikey' : APIKEY,
                    }
     });
+    const result = await data.json();
+    console.log(result);
+    
+    document.querySelector('.out-11').innerHTML = result['random-string'];
 }
 
 document.querySelector('.b-11').onclick = f11;

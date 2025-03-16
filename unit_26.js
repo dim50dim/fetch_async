@@ -254,7 +254,39 @@ document.querySelector('.b-9').onclick = f9;
 // выведите число в .out-10
 
 async function f10(){
+    const out = document.querySelector('.out-10'); // Output element
+  // Example max value, you can set dynamically if needed
 
+    out.innerHTML = ''; // Clear output before inserting result
+
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('min', min);
+    formData.append('max', max);
+
+    try {
+        const response = await fetch('https://api.itgid.info/api/26/random/random-number', {
+            method: 'POST',
+            headers: {
+                 'apikey': APIKEY,
+            },
+            body: formData // Attach form data as body
+        });
+
+        const result = await response.json(); // Parse JSON
+        console.log(result); // Debugging
+
+        // Output the random number
+        if (result && result['random-number']) {
+            out.innerHTML = result['random-number'];
+        } else {
+            out.innerHTML = "No number received.";
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        out.innerHTML = "Failed to load number.";
+    }
 }
 
 document.querySelector('.b-10').onclick = f10;

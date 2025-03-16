@@ -75,7 +75,7 @@ document.querySelector('.b-2').onclick = f2;
 
 async function f3(){
     let name = document.querySelector('.i-3').value;
-     const data = await fetch( URL + '/api/26/employee/read/' + name,{
+     const data = await fetch( URL + '/api/26/employee/read' + name,{
           'method' : "POST",
           'headers' : {
             'apikey' : APIKEY,
@@ -97,7 +97,8 @@ document.querySelector('.b-3').onclick = f3;
 
 
 async function f4(){
-   let data = await fetch(URL + '/api/26/sr/read', {
+    
+   let data = await fetch(URL + '/api/26/sr/read?', {
                       'method' : 'POST',
                       'headers' : {
                         'apikey' : APIKEY,
@@ -120,18 +121,18 @@ document.querySelector('.b-4').onclick = f4;
 
 
 async function f5(){
-    let input = document.querySelector('.s-5')
-    const data = await fetch( URL + '/api/26/sr/read?race=' + input.value ,{
-                   'method' : 'POST',
-                   'headers' : {
-                    'apikey' : APIKEY,
-                   }
-    })
-    let res = await data.json();
-    console.log(res);
+    let race = document.querySelector('.s-5').value;
+       const data = await fetch(URL + '/api/26/sr/read?race='+ race,{
+                          'method': 'GET',
+                          'headers' : {
+                            'apikey' : APIKEY,
+                          }
+       });
+        const res = await data.json();
+        console.log(res.result.description);
+           
     
-    // document.querySelector('.out-5').innerHTML = res;
-}
+    }
 
 document.querySelector('.b-5').onclick = f5;
 

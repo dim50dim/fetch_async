@@ -10,7 +10,7 @@
 
 async function f1() {
        const requestHeaders = new Headers();
-       requestHeaders.append('APIKEY','ccTqZO45ebuz2pPz')
+       requestHeaders.append('apikey','APIKEY')
 
    let emp = await  fetch(URL + '/api/26/employee/read', { 
                 'method' : 'GET',

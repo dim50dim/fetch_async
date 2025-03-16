@@ -9,8 +9,12 @@
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 async function f1() {
+       const requestHeaders = new Headers();
+       requestHeaders.append('APIKEY','ccTqZO45ebuz2pPz')
+
    let emp = await fetch(URL + '/api/26/employee/read', { 
-                'method' : 'GET'
+                'method' : 'GET',
+                'headers': requestHeaders,
    })
    console.log(emp);
    

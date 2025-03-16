@@ -229,7 +229,17 @@ let min = 400;
 let max = 500;
 
 async function f9(){
-   
+   const data = await fetch(URL + `/api/26/random/random-number?min=${min}&max=${max}`,{
+                     'method':'GET',
+                     'headers': {
+
+                        'apikey' : APIKEY,
+                     },
+                  
+   });
+   const result = await data.json();
+   console.log(result);
+   document.querySelector('.out-9').innerHTML = result['random-number'];
 }
 
 document.querySelector('.b-9').onclick = f9;
@@ -244,7 +254,7 @@ document.querySelector('.b-9').onclick = f9;
 // выведите число в .out-10
 
 async function f10(){
-    
+
 }
 
 document.querySelector('.b-10').onclick = f10;

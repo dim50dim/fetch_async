@@ -22,7 +22,9 @@ async function f1() {
 //    }
    console.log(emp);
    const result = await emp.json();
-   console.log(result);
+   let res = result.map(item => item)
+                   .map(elem => elem.age)
+   console.log(res);
    
    
    

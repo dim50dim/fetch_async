@@ -301,7 +301,13 @@ document.querySelector('.b-10').onclick = f10;
 // Выведите строку в .out-11
 
 async function f11(){
-    
+    let len = document.querySelector('.i-11').value;
+    const data = await fetch(URL + '/api/26/random/random-string?length=' + len, {
+                   'method' : 'GET',
+                   'headers' : {
+                    'apikey' : APIKEY,
+                   }
+    });
 }
 
 document.querySelector('.b-11').onclick = f11;

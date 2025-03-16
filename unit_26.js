@@ -46,6 +46,13 @@ document.querySelector('.b-1').addEventListener('click', f1);
 
 
 async function f2(){
+    let input = document.querySelector('.i-2').value;
+   let data = await fetch(URL + '/api/26/employee/read?id=' + input, {
+                          'method' : 'GET',
+                          'headers':{
+                            'apikey' : APIKEY,
+                          }
+   });
    
 }
 

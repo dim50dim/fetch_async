@@ -131,7 +131,7 @@ async function f5(){
         const res = await data.json();
         console.log(res.result.description);
            
-    
+     document.querySelector('.out-5').innerHTML = res.result.description
     }
 
 document.querySelector('.b-5').onclick = f5;
@@ -145,7 +145,22 @@ document.querySelector('.b-5').onclick = f5;
 // выведите статус ответа сервера в .out-6-status
 
 async function f6(){
-   
+     const data = await fetch(URL + '/api/26/run',{
+                         'method' : 'GET',
+                         'headers' : {
+                            'apikey' : APIKEY,
+                         }
+     });
+        const res = await data.json();
+        console.log(res);
+           if(!res.ok){
+     const message = 'Error: ' + response.status;
+    //  throw new Error(message);
+      document.querySelector('.out-6-status').innerHTML = message;
+   }else{
+    document.querySelector('.out-6').innerHTML = res;
+   }
+        
 }
 
 document.querySelector('.b-6').onclick = f6;

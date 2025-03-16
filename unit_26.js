@@ -9,12 +9,14 @@
 // не забывайте для авторизации отправлять apikey с указанным ключом.
 
 async function f1() {
-       const requestHeaders = new Headers();
-       requestHeaders.append('apikey',APIKEY)
+    //    const requestHeaders = new Headers();
+    //    requestHeaders.append('apikey',APIKEY)
 
    let emp = await  fetch(URL + '/api/26/employee/read', { 
                 'method' : 'GET',
-                'headers': requestHeaders,
+                'headers': {
+                    'apikey' : APIKEY,
+                }
    })
 //    if(!emp.ok){
 //      const message = 'Error: ' + response.status;
@@ -23,8 +25,9 @@ async function f1() {
    console.log(emp);
    const result = await emp.json();
 //    let res = result.map(item => console.log(item.name));
+   console.log(result);
    
-    let age = result.result.map(item => item.age);
+    let age = result.result.map(item => item.email);
     document.querySelector('.out-1').innerHTML = age.join(' ');
    
 }

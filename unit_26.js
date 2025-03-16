@@ -95,7 +95,15 @@ document.querySelector('.b-3').onclick = f3;
 
 
 async function f4(){
-   
+   let data = await fetch(URL + '/api/26/sr/read', {
+                      'method' : 'POST',
+                      'headers' : {
+                        'apikey' : APIKEY,
+                      }
+   });
+   let res = await data.json();
+   console.log(res.result.map(item=> item.race));
+   document.querySelector('.out-4').innerHTML = res.result.map(item => item.race).join(' ');
 }
 
 document.querySelector('.b-4').onclick = f4;
